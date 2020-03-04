@@ -1,0 +1,6 @@
+directories:
+  - proj4_code
+required_files:
+optional_directories:
+optional_files:
+  - README.txt
