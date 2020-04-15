@@ -33,8 +33,8 @@ class PS02Test(OutputCheck):
     def testHoughtransform(self,detectCircles):
         """Test for Hough transform """
         #Dummy centers included 
-        centers = np.array([[74,235]])#, [219,320], [106,458], [289,213],  [455,587]])   MATCH RADIUS WITH CENTERS WHILE DEBUGGING
-        radius_as_pixels = 14#,32,53,111,160
+        centers = np.array([[74,235]])#[74,235], [219,320], [106,458], [289,213],  [455,587]])   MATCH RADIUS WITH CENTERS WHILE DEBUGGING
+        radius_as_pixels = 14#14 ,32,53,111,160
         use_gradient = False
         output,hough_space =  detectCircles(im,radius_as_pixels,use_gradient)
         
@@ -69,8 +69,8 @@ class PS02Test(OutputCheck):
     def testHoughtransformwithgradient(self,detectCircles):
         """Test for Hough transform """
         #Dummy centers included 
-        centers = np.array([[74,235]])#, [219,320], [106,458], [289,213],  [455,587]])  MATCH RADIUS WITH CENTERS WHILE DEBUGGING
-        radius_as_pixels = 14#,32,53,111,160
+        centers = np.array([[74,235]])#[74,235], [219,320], [106,458], [289,213],  [455,587]])   MATCH RADIUS WITH CENTERS WHILE DEBUGGING
+        radius_as_pixels = 14 #14 ,32,53,111,160
         use_gradient = True
         start = time.time()
         output,hough_space =  detectCircles(im,radius_as_pixels,use_gradient)
@@ -138,7 +138,7 @@ class PS02Test(OutputCheck):
         
         
     def traffic_light_scene_helper(self, scene_dims, t_sign_fn, t_sign_size,
-                                   detect_fn, n_iter, scene_type, tol = 5,flag=1):
+                                   detect_fn, n_iter, scene_type, tol = 5, flag=1):
         radii_range = range(10, 30, 1)
         status = ["red", "green", "yellow"]
         for i in range(n_iter):  # Multiple iterations to prevent lucky pass
@@ -161,6 +161,7 @@ class PS02Test(OutputCheck):
            
             if flag==1:
                 result,hough_space = detect_fn(test_image, radii_range)
+                print("result is:", result)
                 (x,y),c = result
              
                 
@@ -327,7 +328,7 @@ class PS02Test(OutputCheck):
         """Test for yield sign detection with a blank scene"""
         self.traffic_sign_scene_helper((500, 500), yield_sign.YieldSign,
                                        100,   yield_sign_detection, 1, 10)
-        print_success_message("testYieldSignBlank")
+        print_success_message("jutestYieldSignBlank")
 
     #@weight(15)
     def testTrafficLightBlank(self,traffic_light_detection):
