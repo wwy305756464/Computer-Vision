@@ -1,2 +1,4 @@
-# CS-6476
-Computer Vision
+# Computer Vision
+
+Python Version - Class project
+C++ Version - Practice to intergrate with ROS
